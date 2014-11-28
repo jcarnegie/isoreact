@@ -1,6 +1,7 @@
 {
     "dependencies": {
         "react": "*",
-        "ramda": "*"
+        "ramda": "*",
+        "uuid": "*"
     }
 }
