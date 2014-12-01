@@ -1,7 +1,19 @@
 {
+    "version": "0.0.1",
+
+    "main": "lib/isoreact",
+
     "dependencies": {
-        "react": "*",
-        "ramda": "*",
-        "uuid": "*"
-    }
+        "react": "0.12.1",
+        "ramda": "0.8.0",
+        "uuid": "2.0.1"
+    },
+
+    "devDependencies": {
+        "chai": "1.10.0",
+        "gulp": "3.8.10",
+        "gulp-react": "2.0.0",
+        "gulp-mocha": "2.0.0",
+        "gulp-ext-replace": "0.1.0"
+    },
 }

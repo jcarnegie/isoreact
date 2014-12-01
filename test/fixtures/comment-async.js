@@ -1,14 +1,14 @@
 /*
  * @jsx React.DOM
  */
- var React = require("react");
- var SSRMixin = require("./ssr").mixin;
+var React = require("react");
+var isoreact = require("../../lib/isoreact");
 
- module.exports = React.createClass({
+module.exports = React.createClass({
 
     displayName: "comment",
 
-    mixins: [SSRMixin],
+    mixins: [isoreact.mixin],
 
     getInitialState: function() {
         return {};

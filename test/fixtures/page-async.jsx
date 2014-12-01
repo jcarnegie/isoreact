@@ -1,15 +1,15 @@
 /*
  * @jsx React.DOM
  */
- var React = require("react");
- var Comment = require("./comment");
- var SSRMixin = require("./ssr").mixin;
+var React = require("react");
+var Comment = require("./comment-async");
+var isoreact = require("../../lib/isoreact");
 
  module.exports = React.createClass({
 
     displayName: "page",
 
-    mixins: [SSRMixin],
+    mixins: [isoreact.mixin],
 
     getInitialState: function() {
         return { test: "A" };
@@ -23,10 +23,10 @@
 
     render: function() {
         return (
-            React.createElement("div", null, 
-                React.createElement("h1", null,  this.state.asyncTest), 
-                React.createElement(Comment, {text: "blah"})
-            )
+            <div>
+                <h1>{ this.state.asyncTest }</h1>
+                <Comment text="blah"/>
+            </div>
         );
     }
 
