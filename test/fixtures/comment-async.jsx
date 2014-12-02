@@ -10,15 +10,19 @@ module.exports = React.createClass({
 
     mixins: [isoreact.mixin],
 
-    getInitialState: function() {
-        return {};
-    },
-
-    getInitialStateAsync: function(done) {
+    getInitialState: isoreact.async(function(done) {
         setTimeout(function() {
             done({ foo: "bar" });
         });
-    },
+
+        return {};
+    }),
+
+    // getInitialStateAsync: function(done) {
+    //     setTimeout(function() {
+    //         done({ foo: "bar" });
+    //     });
+    // },
 
     render: function() {
         return (
