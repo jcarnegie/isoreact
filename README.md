@@ -1,1 +1,1 @@
-Server-side rendering for React
+Isomorphic tools for React.

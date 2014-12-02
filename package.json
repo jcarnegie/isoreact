@@ -1,4 +1,6 @@
 {
+    "name": "isoreact",
+    
     "version": "0.0.1",
 
     "main": "lib/isoreact",
@@ -15,5 +17,5 @@
         "gulp-react": "2.0.0",
         "gulp-mocha": "2.0.0",
         "gulp-ext-replace": "0.1.0"
-    },
+    }
 }

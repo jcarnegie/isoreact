@@ -19,12 +19,6 @@ var isoreact = require("../../lib/isoreact");
         return { test: "A" };
     }),
 
-    // getInitialStateAsync: function(done) {
-    //     setTimeout(function() {
-    //         done({ asyncTest: "B" });
-    //     });
-    // },
-
     render: function() {
         return (
             <div>

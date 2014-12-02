@@ -18,12 +18,6 @@ module.exports = React.createClass({
         return {};
     }),
 
-    // getInitialStateAsync: function(done) {
-    //     setTimeout(function() {
-    //         done({ foo: "bar" });
-    //     });
-    // },
-
     render: function() {
         return (
             <div>
