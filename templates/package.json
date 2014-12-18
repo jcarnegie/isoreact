@@ -1,0 +1,33 @@
+{
+  "dependencies": {
+    "express": "^4.10.4",
+    "ramda": "^0.8.0"
+  },
+  "devDependencies": {
+    "axis-css": "^0.1.8",
+    "chai": "^1.10.0",
+    "css-loader": "^0.9.0",
+    "exports-loader": "^0.6.2",
+    "gulp": "^3.8.10",
+    "gulp-mocha": "^2.0.0",
+    "history.js": "^1.8.0",
+    "hogan.js": "^3.0.2",
+    "jeet": "^6.1.2",
+    "json-loader": "0.5.1",
+    "jsx-loader": "^0.12.2",
+    "loader-utils": "^0.2.5",
+    "morgan": "^1.5.0",
+    "mustache": "^0.8.2",
+    "mustache-loader": "^0.2.0",
+    "react": "^0.12.1",
+    "rupture": "^0.5.1",
+    "style-loader": "^0.8.2",
+    "stylus-loader": "^0.4.0",
+    "superagent": "^0.21.0",
+    "uid-safe": "^1.0.1",
+    "webpack": "^1.4.13",
+    "url": "~0.10.1",
+    "querystring": "~0.2.0",
+    "es6-promise": "~2.0.1"
+  }
+}

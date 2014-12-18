@@ -1,2 +1,53 @@
 #!/usr/bin/env node
 
+var program  = require("commander");
+var fs       = require("fs");
+var pathUtil = require("path");
+var findit   = require("findit");
+var mkdirp   = require("mkdirp");
+
+program
+    .version(require('../package.json').version)
+    .usage("<src>")
+    .parse(process.argv);
+
+var destinationPath = program.args.shift() || ".";
+if (destinationPath === ".") program.help()
+fs.mkdirSync(destinationPath);
+
+var templates = pathUtil.join(__dirname, "../templates");
+var finder    = findit(templates);
+
+var normalize = function(path) {
+    var baseDir = path.replace(/^.*templates/, "")
+    return pathUtil.join(destinationPath, baseDir);
+}
+
+var log = function(path) {
+    console.log("   \x1b[36mcreate\x1b[0m : " + path);
+}
+
+finder.on("directory", function(src) {
+    var dest = normalize(src);
+    mkdirp.sync(dest);
+    log(dest);
+});
+
+finder.on("file", function(src) {
+    var dest = normalize(src);
+    var contents = fs.readFileSync(src, "utf8");
+    fs.writeFileSync(dest, contents);
+    log(dest);
+});
+
+finder.on("end", function() {
+    console.log("   install dependencies:");
+    console.log("     $ cd " + destinationPath + " && npm install");
+    console.log("");
+    console.log("   build the app:");
+    console.log("     $ webpack");
+    console.log("");
+    console.log("   run the app:");
+    console.log("     $ node dist/server/app.js");
+    console.log("");
+});
