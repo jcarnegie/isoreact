@@ -68,7 +68,6 @@ module.exports = [
 
         module: {
             loaders: [
-                { test: /.html.mustache$/, loader: "mustache", exclude: "node_modules" },
                 { test: /.json$/, loader: "json", exclude: "node_modules" },
                 { test: /.jsx$/,  loader: "jsx", exclude: "node_modules" },
                 { test: /.styl$/, loader: "style-loader!css-loader!stylus-loader", exclude: "node_modules" }

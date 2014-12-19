@@ -5,21 +5,16 @@ var r           = require("ramda");
 var react       = require("react");
 var isoreact    = require("isoreact");
 var routesList  = require("./routes");
+var router      = require("./lib/router");
 var urlUtil     = require("url");
 var querystring = require("querystring");
+var App         = require("./layouts/app.jsx");
 
-var router1     = isoreact.clientrouter;
-var router     = require("./lib/router");
-var selector   = "#page";
+var selector = "body";
 var pageAction = router.reactPageAction(selector);
 
-console.log(router);
-console.log(JSON.stringify(router));
-console.log(router1);
-console.log(JSON.stringify(router1));
-
 // setup routing
-var routes = r.reduce(router.configureRoute(pageAction), router.create(), routesList);
+var routes = r.reduce(router.configureRoute(pageAction, App), router.create(), routesList);
 
 // route clicks
 // todo: explore if this will be a performance issue - do we need to hook all

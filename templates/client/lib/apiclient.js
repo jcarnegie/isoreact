@@ -4,7 +4,7 @@ var request = require("superagent");
 var Promise = require("es6-promise").Promise;
 
 var apiUrl = function(path) {
-    return env.config().api.base + path;
+    return config.api.base + path;
 };
 
 var get = function(path, prop) {

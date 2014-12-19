@@ -90,8 +90,8 @@ var match = function(routes, path) {
  * @param  {[type]} component)        {               return reactPageActionWithState(null, containerSelector, component);} [description]
  * @return {[type]}                   [description]
  */
-var reactPageAction = r.curry(function(containerSelector, component) {
-    return reactPageActionWithState(null, containerSelector, component);
+var reactPageAction = r.curry(function(containerSelector, layout, component) {
+    return reactPageActionWithState(null, containerSelector, layout, component);
 });
 
 /**
@@ -101,7 +101,7 @@ var reactPageAction = r.curry(function(containerSelector, component) {
  * @param  {Object} component)        {               return function(route, params) {         var context [description]
  * @return {[type]}                   [description]
  */
-var reactPageActionWithState = r.curry(function(state, containerSelector, component) {
+var reactPageActionWithState = r.curry(function(state, containerSelector, layout, component) {
     return function(route, params) { 
         var context = {
             params: params,
@@ -109,9 +109,16 @@ var reactPageActionWithState = r.curry(function(state, containerSelector, compon
             state: state || {}
         };
 
-        var element = react.createFactory(component);
-        var conextualElement = react.withContext(context, function() { return element(context); });
+        var element = react.createFactory(layout);
+        // does element need context passed in? i.e. element(context)?
+        // var conextualElement = react.withContext(context, function() { return element(context); });
+        var props = { body: component };
+        var conextualElement = react.withContext(context, function() { return element(props); });
         var domElement = document.querySelector(containerSelector);
+
+        console.log("rendering react component to: ");
+        console.log(domElement);
+
         react.render(conextualElement, domElement);
     }
 });
@@ -123,10 +130,11 @@ var reactPageActionWithState = r.curry(function(state, containerSelector, compon
  * @param  {[type]} route)       {               var path [description]
  * @return {[type]}              [description]
  */
-var configureRoute = r.curry(function(pageActionFn, routes, route) {
+var configureRoute = r.curry(function(pageActionFn, defaultLayout, routes, route) {
     var path      = r.get("path", route);
     var component = r.get("component", route);
-    return add(routes, path, component, pageActionFn(component));
+    var layout    = r.get("layout", route) || defaultLayout;
+    return add(routes, path, component, pageActionFn(layout, component)); 
 });
 
 /**

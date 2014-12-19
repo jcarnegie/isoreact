@@ -6,8 +6,6 @@ var Post    = require("./pages/post.jsx");
 var Signup  = require("./pages/signup.jsx");
 
 var loadAsProp = r.curry(function(prop, fn, context) {
-    console.log("prop: " + prop);
-    console.log(fn.toString());
     return fn(context).then(function(data) {
         var result = {};
         result[prop] = data;
