@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "express": "^4.10.4",
-    "ramda": "^0.8.0"
+    "ramda": "^0.8.0",
+    "isoreact": "jcarnegie/isoreact"
   },
   "devDependencies": {
     "axis-css": "^0.1.8",
