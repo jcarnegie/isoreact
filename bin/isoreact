@@ -45,9 +45,9 @@ finder.on("end", function() {
     console.log("     $ cd " + destinationPath + " && npm install");
     console.log("");
     console.log("   build the app:");
-    console.log("     $ webpack");
+    console.log("     $ npm run build");
     console.log("");
     console.log("   run the app:");
-    console.log("     $ node dist/server/app.js");
+    console.log("     $ npm run server");
     console.log("");
 });
